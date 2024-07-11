@@ -5,7 +5,7 @@
 
 
     let passphrase = '';
-    const correctPassphrase = 'noPuntIntendedRulez!';
+    const correctPassphrase = 'passphrase!';
     let loginError = false;
 
     function handleLogin() {
