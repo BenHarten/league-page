@@ -4,6 +4,13 @@ import { stringDate } from './news';
 
 const QUESTION = 'managers/question.jpg';
 
+export function checkAuthentication() {
+    return new Promise((resolve) => {
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        resolve(isAuthenticated === 'true');
+    });
+}
+
 export const cleanName = (name) => {
     return name.replace('Team ', '').toLowerCase().replace(/[ ’'!"#$%&\\'()\*+,\-\.\/:;<=>?@\[\\\]\^_`{|}~']/g, "");
 }
@@ -215,6 +222,10 @@ export const getAvatarFromTeamManagers = (teamManagers, rosterID, year) => {
     const roster = yearManagers[rosterID];
     if(roster == null) {
         return QUESTION;
+    }
+    // if the team has no avatar, check for an avatar in the following year
+    if (roster.team?.avatar.endsWith("null")) {
+        return getAvatarFromTeamManagers(teamManagers, rosterID, year + 1);
     }
     return roster.team?.avatar;
 }

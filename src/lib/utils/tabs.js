@@ -16,16 +16,21 @@ export const tabs = [
         label: 'Trades & Waivers',
         dest: '/transactions',
     },
-    {
-        icon: 'article',
-        label: 'Blog',
-        dest: '/blog',
-    },
+    // {
+    //     icon: 'article',
+    //     label: 'Blog',
+    //     dest: '/blog',
+    // },
     {
         icon: 'view_comfy',
         label: 'League Info',
         nest: true,
         children: [
+            {
+                icon: 'history_edu',
+                label: 'Regeln',
+                dest: '/constitution',
+            },
             {
                 icon: 'storage',
                 label: 'Rosters',
@@ -62,20 +67,15 @@ export const tabs = [
                 dest: '/records',
             },
             {
-                icon: 'history_edu',
-                label: 'Regeln',
-                dest: '/constitution',
-            },
-            {
                 icon: 'sports_football',
                 label: 'Go to Sleeper',
                 dest: `https://sleeper.app/leagues/${leagueID}`,
             },
         ]
     },
-    // {
-    //     icon: 'lightbulb',
-    //     label: 'Resources',
-    //     dest: '/resources',
-    // },
+    {
+        icon: 'lightbulb',
+        label: 'News',
+        dest: '/resources',
+    },
 ];
